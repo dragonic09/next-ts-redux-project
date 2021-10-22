@@ -6,28 +6,7 @@ import type { Profile, RootState, UserState } from '../../../types/store'
 // Define the initial state using that type
 const initialState: UserState = {
     id: 0,
-    profiles: [
-        {
-            id: 0,
-            name: 'test1',
-            imageUrl: ''
-        },
-        {
-            id: 1,
-            name: 'test2',
-            imageUrl: ''
-        },
-        {
-            id: 2,
-            name: 'test3',
-            imageUrl: ''
-        },
-        {
-            id: 3,
-            name: 'test10',
-            imageUrl: ''
-        }
-    ]
+    profiles: []
 }
 
 const usersSlice = createSlice({
@@ -49,9 +28,20 @@ const usersSlice = createSlice({
             profiles: state.profiles.filter(profile => profile.id !== action.payload)
         }
     },
+    openProfile: (state) => {
+        return {
+            ...state
+        }
+    }, 
+    setProfiles: (state, action: PayloadAction<Profile[] | undefined>) => {
+        return {
+            ...state,
+            profiles: action.payload ? [...action.payload] : []
+        }
+    }
   },
 })
 
-export const { addProfile, removeProfile } = usersSlice.actions
+export const { addProfile, removeProfile, openProfile, setProfiles } = usersSlice.actions
 
 export default usersSlice.reducer
