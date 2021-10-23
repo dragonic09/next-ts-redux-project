@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { connect, useSelector } from "react-redux"
-import { AddProfileButton } from "../features/profiles/components/add-profile-button"
+import AddProfileSection from "../features/profiles/components/add-profile-section"
 import Avatar from "../features/profiles/components/avatar"
 import { AvatarList } from "../features/profiles/components/avatar-list"
 import { getProfiles } from "../store/features/user/user-selector"
@@ -20,7 +20,7 @@ const Profiles = ({ dispatch }) => {
         <AvatarList>
             {avatars}
         </AvatarList>
-        <AddProfileButton></AddProfileButton>
+        <AddProfileSection />
        </div>
         
     )

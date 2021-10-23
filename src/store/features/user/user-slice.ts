@@ -10,7 +10,7 @@ const initialState: UserState = {
 }
 
 const usersSlice = createSlice({
-  name: 'userss',
+  name: 'users',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
